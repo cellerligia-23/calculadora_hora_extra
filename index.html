@@ -15,12 +15,12 @@
       <h1>Quantas Horas Extras Trabalhadas</h1>
       <div class="content content-1">
         <input type="date" id="date" class="input-start input-time">
-        <input type="text" id="start" class="input-start input-time" placeholder="Hora da Entrada">
-        <input type="text" id="end" class="input-end input-time" placeholder="Hora da Saída">
+        <input type="text" id="start" class="input-start input-time" placeholder="Hora da Entrada (hh:00)">
+        <input type="text" id="end" class="input-end input-time" placeholder="Hora da Saída (hh:00)">
         <button type="button" id="btn-calc-hours" class="btn">Calcular Horas</button>
       </div>
       <div class="content content-2">
-        <input type="text" id="result-hours" class="input-time" placeholder="Horas a mais trabalhadas">
+        <input type="text" id="result-hours" class="input-time" placeholder="Total horas trabalhadas do dia">
       </div>
     </div>
 
@@ -51,13 +51,13 @@
     <div class="container container-3">
       <h1>Dias Anotados</h1>
       <div class="content content-1">
-        <table border="1" id="table-days">
+        <table id="table-days">
           <thead id="table-thead-days">
             <tr>
-              <th class="table-row">Dia</th>
-              <th class="table-row">Hora da Entrada</th>
-              <th class="table-row">Hora da Saída</th>
-              <th class="table-row">Horas Extras</th>
+              <th class="table-row">Data</th>
+              <th class="table-row">Hora da Entrada (hh:00)</th>
+              <th class="table-row">Hora da Saída (hh:00)</th>
+              <th class="table-row">Horas Extras do Dia</th>
             </tr>
           </thead>
           <tbody id="table-tbody-days"></tbody>
