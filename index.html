@@ -14,13 +14,39 @@
     <div class="container container-1">
       <h1>Quantas Horas Extras Trabalhadas</h1>
       <div class="content content-1">
-        <input type="date" id="date" class="input-start input-time">
-        <input type="text" id="start" class="input-start input-time" placeholder="Hora da Entrada (hh:00)">
-        <input type="text" id="end" class="input-end input-time" placeholder="Hora da Saída (hh:00)">
-        <button type="button" id="btn-calc-hours" class="btn">Calcular Horas</button>
+        <input 
+          type="date" 
+          id="date" 
+          class="input-start input-time"
+        />
+        <input 
+          type="time" 
+          id="start" 
+          class="input-start input-time" 
+          placeholder="Hora da Entrada (hh:00)"
+        />
+        <input 
+          type="time" 
+          id="end" 
+          class="input-end input-time" 
+          placeholder="Hora da Saída (hh:00)"
+        />
+        <span id="span-error" class="span-error"></span>
+        <button 
+          type="button" 
+          id="btn-calc-hours" 
+          class="btn btn-calc-hours" 
+        >
+          Calcular Horas
+        </button>
       </div>
       <div class="content content-2">
-        <input type="text" id="result-hours" class="input-time" placeholder="Total horas trabalhadas do dia">
+        <input 
+          type="text" 
+          id="result-hours" 
+          class="input-time" 
+          placeholder="Total horas trabalhadas do dia"
+        />
       </div>
     </div>
 
@@ -28,8 +54,18 @@
     <div class="container container-2">
       <h1>Calculadora de Horas Extras</h1>
       <div class="content content-1">
-        <input type="text" id="salary" class="input-salary input-time" placeholder="Salário bruto">
-        <input type="text" id="hours-month" class="input-hours-month input-time" placeholder="Carga horária mensal (horas)">
+        <input 
+          type="text" 
+          id="salary" 
+          class="input-salary input-time" 
+          placeholder="Salário bruto"
+        />
+        <input 
+          type="text" 
+          id="hours-month" 
+          class="input-hours-month input-time" 
+          placeholder="Carga horária mensal (horas)"
+        />
         
         <label for="percentage-hours-extras" class="label-percentage-hours">Porcentagem da hora extra</label>
         <select name="percentage-hours-extras" id="percentage-hours-extras" class="select-percentage-hours input-time">
@@ -47,7 +83,12 @@
         <button type="button" id="btn-extra-hours" class="btn">Calcular Horas Extras</button>
       </div>
       <div class="content content-2">
-        <input type="text" id="result-hours-extras" class="input-time" placeholder="Valor das horas extras">
+        <input 
+          type="text" 
+          id="result-hours-extras" 
+          class="input-time" 
+          placeholder="Valor das horas extras"
+        />
       </div>
     </div>
   </section>

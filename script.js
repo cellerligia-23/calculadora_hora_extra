@@ -1,9 +1,9 @@
 const inputDate = document.getElementById("date");
 const inputStart = document.getElementById("start");
 const inputEnd = document.getElementById("end");
-const btnCalc = document.getElementById("btn-calc-hours");
+const span_error = document.getElementById("span-error");
+const btn_hours = document.getElementById("btn-calc-hours");
 const resultHours = document.getElementById("result-hours");
-
 
 /*********** Funções para o LocalStorage ***************/
 const keyLocalStorage = "dates";
@@ -13,8 +13,8 @@ function checkLocalStorage() {
 
   if (localStorage.getItem(keyLocalStorage) === null) {
     localStorage.setItem(keyLocalStorage, JSON.stringify(dates));
-  }
-}
+  };
+};
 
 function setLocalStorage() {
   checkLocalStorage();
@@ -32,14 +32,14 @@ function setLocalStorage() {
   day.push(object);
 
   localStorage.setItem(keyLocalStorage, JSON.stringify(day));
-}
+};
 
 function getLocalStorage() {
   const arrayLocalStorage = JSON.parse(localStorage.getItem(keyLocalStorage));
   return arrayLocalStorage;
-}
+};
+/*********** FUNÇÕES QUANTIDADES DE HORAS EXTRAS TRABALHADAS *******************************/
 
-/*********** Funções para o quantidade de horas extras trabalhadas ***************/
 function calculateMinutesWorked() {
   const start = inputStart.value.split(":");
   const end = inputEnd.value.split(":");
@@ -59,7 +59,7 @@ function calculateMinutesWorked() {
 
   setLocalStorage();
   writeDays();
-}
+};
 
 function convertMinutesToHours(minutes) {
   const hours = Math.floor(minutes / 60);
@@ -68,9 +68,9 @@ function convertMinutesToHours(minutes) {
   resultHours.value = `${hours}:${minutosRestantes}`;
 }
 
-btnCalc.addEventListener("click", calculateMinutesWorked);
+btn_hours.addEventListener("click", calculateMinutesWorked);
 
-/*********** Funções para o valor das horas extras trabalhadas ***************/
+/*********** FUNÇÕES CALCULADORA DE HORAS EXTRAS *******************************/
 const salary_month = document.getElementById("salary");
 const hours_month = document.getElementById("hours-month");
 const select_percentage_hours_extras = document.getElementById("percentage-hours-extras");
@@ -107,8 +107,9 @@ function calculateHoursExtras() {
     const sum = Number(total_hour_extra) + Number(total_minutes_extra);
 
     result_hours_extras.value = `R$ ${sum.toFixed(2)}`;
-  }
-}
+  };
+};
+
 
 btn_extra_hours.addEventListener("click", calculateHoursExtras);
 
@@ -117,25 +118,25 @@ const tableDays = document.getElementById("table-tbody-days");
 function writeDays() {
   const data = getLocalStorage();
 
-  const tableRow = data
-    .map(
-      (item, index) =>
-        `<tr id=${index + 1}>
-          <td>${item.date}</td>
-          <td>${item.input}</td>
-          <td>${item.output}</td>
-          <td>${item.hours_extras}</td>
-          <td>
-            <img 
-              src="./img/icon/remover.png" 
-              alt="botão de remover" 
-              class="icons"
-              onclick="removeTableRow(${index})"
-            />
-          </td>
-         </tr>`
-    )
-    .join(" ");
+  const tableRow = !data ? "" :  data
+  .map(
+    (item, index) =>
+      `<tr id=${index + 1}>
+        <td>${item.date}</td>
+        <td>${item.input}</td>
+        <td>${item.output}</td>
+        <td>${item.hours_extras}</td>
+        <td>
+          <img 
+            src="./img/icon/remover.png" 
+            alt="botão de remover" 
+            class="icons"
+            onclick="removeTableRow(${index})"
+          />
+        </td>
+       </tr>`
+  )
+  .join(" ");
 
   tableDays.innerHTML = tableRow;
 };
