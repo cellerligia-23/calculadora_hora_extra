@@ -125,12 +125,27 @@ function writeDays() {
           <td>${item.input}</td>
           <td>${item.output}</td>
           <td>${item.hours_extras}</td>
+          <td>
+            <img 
+              src="./img/icon/remover.png" 
+              alt="botão de remover" 
+              class="icons"
+              onclick="removeTableRow(${index})"
+            />
+          </td>
          </tr>`
     )
     .join(" ");
 
   tableDays.innerHTML = tableRow;
-}
+};
+
+function removeTableRow(index) {
+  const newListLocalStorege = getLocalStorage();
+  newListLocalStorege.splice(index, 1);
+  localStorage.setItem(keyLocalStorage, JSON.stringify(newListLocalStorege));
+  writeDays();
+};
 
 /******** Executar a Função toda fez que a página iniciar/atualizar *********/
 window.onload = () => {

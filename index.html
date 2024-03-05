@@ -37,7 +37,13 @@
           <option value="100">100%</option>
         </select>
         
-        <input type="text" id="extra-hours" class="input-extra-hours input-time" placeholder="Quantidade de horas extras">
+        <input 
+          type="text" 
+          id="extra-hours" 
+          class="input-extra-hours input-time" 
+          placeholder="Quantidade de horas extras (hh:mm)"
+          maxlength="6"
+        />
         <button type="button" id="btn-extra-hours" class="btn">Calcular Horas Extras</button>
       </div>
       <div class="content content-2">
@@ -58,6 +64,7 @@
               <th class="table-row">Hora da Entrada (hh:00)</th>
               <th class="table-row">Hora da Saída (hh:00)</th>
               <th class="table-row">Horas Extras do Dia</th>
+              <th class="table-row">Botão</th>
             </tr>
           </thead>
           <tbody id="table-tbody-days"></tbody>
