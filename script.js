@@ -7,6 +7,7 @@ const resultHours = document.getElementById("result-hours");
 
 /*********** Funções para o LocalStorage ***************/
 const keyLocalStorage = "dates";
+const current_date = currentDate();
 
 function checkLocalStorage() {
   const dates = new Array();
@@ -16,14 +17,16 @@ function checkLocalStorage() {
   };
 };
 
-function setLocalStorage() {
+function setLocalStorageHoursExtras() {
   checkLocalStorage();
 
-  const date = inputDate.value.split("-");
+  const date = inputDate.value;
+  const formatDate = inputDate.value.split("-");
   const day = JSON.parse(localStorage.getItem(keyLocalStorage));
+  const validateDates = !date ? current_date : `${formatDate[2]}/${formatDate[1]}/${formatDate[0]}`;
 
   const object = {
-    date: `${date[2]}/${date[1]}/${date[0]}`,
+    date: validateDates,
     input: inputStart.value,
     output: inputEnd.value,
     hours_extras: resultHours.value,
@@ -56,7 +59,7 @@ function calculateMinutesWorked() {
     resultHours.value = `Sem horas a mais trabalhadas`;
   };
 
-  setLocalStorage();
+  setLocalStorageHoursExtras();
   writeDays();
 };
 
@@ -82,7 +85,16 @@ function currentDate() {
   const format_date = `${currentYear}-${format_month}-${format_today}`;
 
   inputDate.value = format_date;
+
+  return `${format_today}/${format_month}/${currentYear}`;
 };
+
+/*function validateInputs() {
+  const isEmpty = inputDate.value &&
+  console.log(isEmpty);
+};
+
+inputDate.addEventListener("keyup", );*/
 
 btn_hours.addEventListener("click", calculateMinutesWorked);
 
@@ -125,7 +137,6 @@ function calculateHoursExtras() {
     result_hours_extras.value = `R$ ${sum.toFixed(2)}`;
   };
 };
-
 
 btn_extra_hours.addEventListener("click", calculateHoursExtras);
 
