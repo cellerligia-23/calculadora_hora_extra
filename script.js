@@ -39,7 +39,6 @@ function getLocalStorage() {
   return arrayLocalStorage;
 };
 /*********** FUNÇÕES QUANTIDADES DE HORAS EXTRAS TRABALHADAS *******************************/
-
 function calculateMinutesWorked() {
   const start = inputStart.value.split(":");
   const end = inputEnd.value.split(":");
@@ -65,10 +64,24 @@ function convertMinutesToHours(total_minutes) {
   const hours = Math.floor(total_minutes / 60);
   const minutes = total_minutes % 60;
 
-  let format_hours = hours < 10 ? `0${hours}` : hours;
-  let format_minutes = minutes < 10 ? `0${minutes}` : minutes;
+  let format_hours = (hours >= 0 && hours < 10) ? `0${hours}` : hours;
+  let format_minutes = (minutes >= 0 && minutes < 10) ? `0${minutes}` : minutes;
 
   resultHours.value = `${format_hours}:${format_minutes}`;
+};
+
+function currentDate() {
+  const date = new Date();
+  const today = date.getDate();
+  const currentMonth = date.getMonth() + 1;
+  const currentYear = date.getFullYear();
+
+  const format_today = (today >= 1 && today < 9) ? `0${today}` : today;
+  const format_month = (currentMonth >= 1 && currentMonth < 9) ? `0${currentMonth}` : currentMonth;
+
+  const format_date = `${currentYear}-${format_month}-${format_today}`;
+
+  inputDate.value = format_date;
 };
 
 btn_hours.addEventListener("click", calculateMinutesWorked);
@@ -116,7 +129,7 @@ function calculateHoursExtras() {
 
 btn_extra_hours.addEventListener("click", calculateHoursExtras);
 
-/***************** Funções Dias Anotados **************************/
+/***************** FUNÇÕES DIAS ANOTADOS **************************/
 const tableDays = document.getElementById("table-tbody-days");
 function writeDays() {
   const data = getLocalStorage();
@@ -154,4 +167,5 @@ function removeTableRow(index) {
 /******** Executar a Função toda fez que a página iniciar/atualizar *********/
 window.onload = () => {
   writeDays();
+  currentDate();
 };
