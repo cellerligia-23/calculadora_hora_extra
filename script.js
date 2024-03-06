@@ -55,18 +55,21 @@ function calculateMinutesWorked() {
     convertMinutesToHours(minutesWored);
   } else {
     resultHours.value = `Sem horas a mais trabalhadas`;
-  }
+  };
 
   setLocalStorage();
   writeDays();
 };
 
-function convertMinutesToHours(minutes) {
-  const hours = Math.floor(minutes / 60);
-  const minutosRestantes = minutes % 60;
+function convertMinutesToHours(total_minutes) {
+  const hours = Math.floor(total_minutes / 60);
+  const minutes = total_minutes % 60;
 
-  resultHours.value = `${hours}:${minutosRestantes}`;
-}
+  let format_hours = hours < 10 ? `0${hours}` : hours;
+  let format_minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  resultHours.value = `${format_hours}:${format_minutes}`;
+};
 
 btn_hours.addEventListener("click", calculateMinutesWorked);
 
