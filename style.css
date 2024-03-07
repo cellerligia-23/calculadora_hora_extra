@@ -130,3 +130,8 @@ th {
 .icons {
   width: 20px;
 }
+
+.container-toggle {
+  color: #fff;
+  visibility: hidden;
+}

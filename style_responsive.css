@@ -19,6 +19,21 @@
   .container-3 h1 {
     display: none;
   }
+
+  .container-toggle {
+    visibility: visible;
+  }
+
+  .switch {
+    height: 15px;
+    width: 15px;
+    margin-right: 2px;
+  }
+  
+  .label-switch {
+    font-size: 17px;
+    font-weight: 800;
+  }
 }
 
 @media only screen and (max-width: 1100px) {

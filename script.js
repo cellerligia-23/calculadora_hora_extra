@@ -174,8 +174,30 @@ function removeTableRow(index) {
   localStorage.setItem(keyLocalStorage, JSON.stringify(newListLocalStorege));
   writeDays();
 };
+/****************** FUNÇÃO DO INPUT CHECKBOX ************************************/
+const card_calc_hours_worked = document.getElementById("container-1");
+const card_calc_hours_extras = document.getElementById("container-2");
+const card_notes = document.getElementById("container-3");
+const container_toggle = document.getElementById("container-toggle");
+const input_switch = document.getElementById("switch");
+const label_switch = document.getElementById("label-switch");
 
-/******** Executar a Função toda fez que a página iniciar/atualizar *********/
+function inputCkebox() {
+  if (input_switch.checked) {
+    card_calc_hours_worked.classList.add("card-disabled");
+    card_notes.classList.add("card-disabled");
+    card_calc_hours_extras.classList.remove("card-disabled");
+    label_switch.innerText = " Calcular Horas Trabalhadas";
+  } else {
+    card_calc_hours_extras.classList.add("card-disabled");
+    card_calc_hours_worked.classList.remove("card-disabled");
+    card_notes.classList.remove("card-disabled");
+    label_switch.innerText = "Calcular Horas Extras";
+  }
+};
+
+input_switch.addEventListener("change", inputCkebox);
+/******** EXECUTAR A FUNÇÃO TODA FEZ QUA A PÁGINA INICIAR/ATUALIZAR *************/
 window.onload = () => {
   writeDays();
   currentDate();
