@@ -1,0 +1,51 @@
+@media only screen and (max-width: 765px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  table {
+    font-size: 8px;
+  }
+
+  .container-2 {
+    display: none;
+  }
+
+  .container-3 h1 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  .container-section-1 {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .container-1, .container-2{
+    width: 350px;
+  }
+
+  .container-3 h1 {
+    display: none;
+  }
+}

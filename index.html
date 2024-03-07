@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./img/icon/money.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./style_responsive.css">
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
   <title>Calculadora de Horas Extras</title>
@@ -82,7 +83,13 @@
           placeholder="Quantidade de horas extras (hh:mm)"
           maxlength="6"
         />
-        <button type="button" id="btn-extra-hours" class="btn">Calcular Horas Extras</button>
+        <button 
+          type="button" 
+          id="btn-extra-hours" 
+          class="btn"
+        >
+          Calcular Horas Extras
+        </button>
       </div>
       <div class="content content-2">
         <input 
@@ -104,9 +111,9 @@
           <thead id="table-thead-days">
             <tr>
               <th class="table-row">Data</th>
-              <th class="table-row">Hora da Entrada (hh:00)</th>
-              <th class="table-row">Hora da Saída (hh:00)</th>
-              <th class="table-row">Horas Extras do Dia</th>
+              <th class="table-row">HR da Entrada (hh:00)</th>
+              <th class="table-row">HR da Saída (hh:00)</th>
+              <th class="table-row">HR Extras do Dia</th>
               <th class="table-row">Excluir</th>
             </tr>
           </thead>

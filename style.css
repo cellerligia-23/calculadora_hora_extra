@@ -8,6 +8,11 @@
   outline: none;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   display: flex;
   justify-content: space-around;
@@ -15,8 +20,6 @@ body {
   background-image: linear-gradient(
     to left bottom, #10bfc7, #00afe4, #0098fb, #4c74f7, #b032cb
   );
-  width: 100%;
-  height: 100%;
 }
 
 h1 {
@@ -26,14 +29,12 @@ h1 {
 table {
   background-color: rgb(240, 248, 255);
   text-align: center;
-  
   font-size: 14px;
 }
 
 td, th {
   border: 1px solid black;
   padding: 5px;
-  
 }
 
 th {
@@ -41,7 +42,7 @@ th {
 }
 
 .container {
-  margin: 50px auto;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
